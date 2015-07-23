@@ -142,6 +142,7 @@ public class Game {
     public void handleCollisions() {
         // handles out of bounds
         if (outOfBounds()) {
+            System.out.println("Out of Bounds");
             gameOver();
         }
         //handles food being eaten
@@ -152,6 +153,7 @@ public class Game {
         }
         // handles snake eating itself
         if (cannibal()) {
+            System.out.println("Cannibal");
             gameOver();
         }
         
