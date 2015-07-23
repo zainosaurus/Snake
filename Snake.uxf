@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.0">
+  <help_text>// Uncomment the following line to change the fontsize and font:
+fontsize=10
+fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
+
+</help_text>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>350</y>
+      <w>210</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Location
+--
+- x : double
+- y : double
+--
++ Location()
++ Location(d, d)
+(accessors and mutators for x and y)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>50</y>
+      <w>210</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Game
+--
+- snake : Snake
+- food : Square
+- points : int
+- maxx : double
+- maxy : double
+- POINTS_PER_MEAL : final int = 10
+- uberDice : Random
+--
++ Game() 
++ manageBoard() : void
++ checkCollision() : void
++ hitBoundary() : boolean
++ ateFood() : boolean
++ addPoints(int) : void
++ removePoints(int) : void
+
+/*
+
+one idea is to make the manageboard() method do everything
+that would be inside the while loop and have the actual 
+loop in the main method, but idk if it's better to have
+the entire loop inside the manageBoard() method...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>270</y>
+      <w>210</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Snake
+--
+- numSections : int
+- segments : ArrayList
+- head : Square
+- tail : Square
+- dir : Direction (enum)
+- BUFFER : final double = 5
+- location: Location
+--
++ Snake(d, d)
++ updateLocation() : void
++ move() : void
++ addSegment() : void
++ removeSegment() : void
++ setDirection(Direction) : void
++ draw() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>50</y>
+      <w>210</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Square
+--
++ SIZE : final double = 10
+- location: Location
+--
++ Square()
++ Square(d, d)
++ draw() : void
++ draw(d, d) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>120</y>
+      <w>160</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>SnakeRunner
+--
+
+--
++ main(String[]) [STATIC] : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
