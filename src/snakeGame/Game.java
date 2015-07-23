@@ -16,9 +16,11 @@ import org.lwjgl.input.Keyboard;
 public class Game {
     // Variables
     private final int POINTS_PER_MEAL = 10;
-    private final int FRAME_RATE = 7;
+    private final int FRAME_RATE = 60;
     private Snake snake;
     private Square food;
+    private long count = 0; // counts the frames which have elapsed (snake will only move every few count values to control speed)
+    private final int SPEED = 7;    // how often to move the snake (# of frames)
     private int points;
     private int maxx;
     private int maxy;
@@ -53,12 +55,16 @@ public class Game {
 	    GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
             
             // game management
-            manageInput();
+            if (count % SPEED == 0) {
+                manageInput();
+            }
             snake.draw();
             growFood();
             handleCollisions();
-            snake.move();
-            
+            if (count % SPEED == 0) {
+                snake.move();
+            }
+            count++;
             
             Display.update();
             Display.sync(FRAME_RATE);
